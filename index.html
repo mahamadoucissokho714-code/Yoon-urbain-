@@ -1,0 +1,56 @@
+<title>Yoon Urbain</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,600..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Yoon Urbain : itinéraires, horaires, prochains passages et billets du réseau de bus (démonstration).">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#F6B500">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Yoon Urbain">
+
+<button class="skip" data-action="skip">Aller au contenu</button>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#itineraire" aria-label="Yoon Urbain, accueil">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--signal)"/><path d="M9 24c0-6 16-4 16-11" fill="none" stroke="#1A1400" stroke-width="3" stroke-linecap="round"/><circle cx="9" cy="24" r="3.5" fill="#fff" stroke="#1A1400" stroke-width="2.5"/><circle cx="25" cy="11" r="3.5" fill="#fff" stroke="#1A1400" stroke-width="2.5"/></svg>
+      Yoon Urbain
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale"></nav>
+    <div class="tools">
+      <span class="clock" id="clock" aria-label="Heure actuelle"></span>
+      <button class="btn sm" data-action="install" id="installBtn" hidden>Installer l'appli</button>
+      <button class="icon-btn" data-action="theme" aria-label="Changer le thème clair ou sombre" id="themeBtn"></button>
+    </div>
+  </div>
+</header>
+<main class="wrap" id="app" tabindex="-1"></main>
+<footer><div class="wrap">Yoon Urbain est un réseau de démonstration. Les horaires sont théoriques. <span id="payNote">Les paiements sont simulés : aucune somme n'est débitée.</span></div></footer>
+<datalist id="stopList"></datalist>
+<div id="toastHost" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script defer src="js/monitor.js"></script>
+<script defer src="js/core.js"></script>
+<script defer src="js/data.js"></script>
+<script defer src="js/engine.js"></script>
+<script defer src="js/state.js"></script>
+<script defer src="js/components.js"></script>
+<script defer src="js/charts.js"></script>
+<script defer src="js/map.js"></script>
+<script defer src="js/views/plan.js"></script>
+<script defer src="js/views/lines.js"></script>
+<script defer src="js/views/board.js"></script>
+<script defer src="js/views/map.js"></script>
+<script defer src="js/payment-client.js"></script>
+<script defer src="js/views/tickets.js"></script>
+<script defer src="js/views/dashboard.js"></script>
+<script defer src="js/views/infos.js"></script>
+<script defer src="js/views/help.js"></script>
+<script defer src="js/app.js"></script>
+<script defer src="js/pwa.js"></script>

@@ -1,0 +1,25 @@
+{
+  "name": "yoon-urbain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site de transport urbain : itinéraires, horaires, billets (démonstration, sans serveur).",
+  "scripts": {
+    "start": "node tests/helpers/serve.js",
+    "test": "node --test \"tests/unit/*.test.js\"",
+    "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.js\"",
+    "test:all": "npm test && npm run test:e2e",
+    "build": "node scripts/build.js",
+    "preview": "npm run build && SITE_ROOT=dist node tests/helpers/serve.js",
+    "smoke": "node scripts/smoke.js",
+    "check": "npm test && npm run test:e2e",
+    "server": "node server/server.js",
+    "pay:simulate": "node scripts/simulate-operator.js",
+    "icons": "node scripts/make-icons.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

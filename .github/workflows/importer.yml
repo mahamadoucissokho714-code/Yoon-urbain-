@@ -1,0 +1,28 @@
+name: Importer le projet
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extraire le zip
+        run: |
+          set -e
+          zip=$(ls -S *.zip 2>/dev/null | head -n1)
+          test -n "$zip" || { echo "Aucun fichier .zip à la racine du dépôt."; exit 1; }
+          echo "Zip retenu (le plus gros) : $zip"
+          rm -rf /tmp/x && mkdir /tmp/x && unzip -q "$zip" -d /tmp/x
+          src=$(find /tmp/x -maxdepth 3 -name index.html -not -path '*/node_modules/*' -printf '%h\n' | head -n1)
+          test -n "$src" || { echo "index.html introuvable dans le zip."; exit 1; }
+          (cd "$src" && tar --exclude=./.git --exclude=./.github --exclude=./node_modules --exclude=./dist -cf - .) | tar -xf -
+          rm -f -- *.zip
+      - name: Enregistrer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import du projet Yoon Urbain"
+          git push
